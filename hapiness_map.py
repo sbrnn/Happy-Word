@@ -1,15 +1,12 @@
-# Import libraries
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 
-# Load dataset
 df = pd.read_csv("world_happiness.csv")
-df.head()
+print(df.head())
 
-# Keep relevant features
 features = ['GDP per capita', 'Social support',
             'Healthy life expectancy',
             'Freedom to make life choices',
@@ -49,7 +46,6 @@ plt.show()
 kmeans = KMeans(n_clusters=3, random_state=42)
 clusters = kmeans.fit_predict(X_pca)
 
-# Visualize
 plt.figure(figsize=(10, 6))
 plt.scatter(X_pca[:, 0], X_pca[:, 1], c=clusters, cmap='viridis')
 
